@@ -1,6 +1,6 @@
 # Audio Report AI
 
-Local-first Ubuntu desktop application for recording or importing audio,
+Local Ubuntu desktop application for recording or importing audio,
 transcribing it on your own machine, reviewing the transcript, and producing
 structured reports for human approval.
 
@@ -23,7 +23,7 @@ use the app. Model weights are not bundled; setup is explicit and documented.
 - Read the whole transcript with optional timestamps, copy, or save it as text.
 - Seek playback to any transcript segment.
 - Generate structured reports through loopback-only Ollama.
-- Choose the local report model per report: Qwen, LFM3, or another installed model.
+- Choose the local report model per report: Qwen 3.5 4B, LFM3, or another installed model.
 - Choose report language and length: short, normal, long, or extensive.
 - Write custom report instructions and save them as reusable modes.
 - Use a general conversation profile or a formal veterinary clinical profile.
@@ -33,7 +33,7 @@ use the app. Model weights are not bundled; setup is explicit and documented.
 - Search sessions and delete all session-owned data.
 - Run offline after the explicit local model setup.
 
-## Requirements
+## What I used
 
 - Ubuntu 24.04
 - Python 3.12 through [`uv`](https://docs.astral.sh/uv/)
