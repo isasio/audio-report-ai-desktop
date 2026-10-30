@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "audio-report-ai"
+version = "0.1.0"
+description = "Local-first audio transcription and report desktop application"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.13"
+authors = [
+    { name = "Audio Report AI contributors" },
+]
+keywords = [
+    "audio",
+    "transcription",
+    "reports",
+    "offline",
+    "local-first",
+    "faster-whisper",
+    "ollama",
+    "veterinary",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Office/Business",
+]
+dependencies = [
+    "PySide6>=6.8,<7",
+    "av>=11,<19",
+    "faster-whisper>=1.1,<2",
+    "pydantic>=2.10,<3",
+    "python-docx>=1.1,<2",
+    "sounddevice>=0.5,<1",
+]
+
+[project.optional-dependencies]
+diarization = [
+    "pyannote.audio>=4,<5",
+]
+
+[project.urls]
+Homepage = "https://github.com/isasio/audio-report-ai-desktop"
+Repository = "https://github.com/isasio/audio-report-ai-desktop"
+Issues = "https://github.com/isasio/audio-report-ai-desktop/issues"
+Releases = "https://github.com/isasio/audio-report-ai-desktop/releases"
+
+[project.scripts]
+audio-report-ai = "audio_report_ai.main:main"
+
+[dependency-groups]
+dev = [
+    "hatchling>=1.27,<2",
+    "pytest>=8.3,<9",
+    "pytest-qt>=4.4,<5",
+    "ruff>=0.9,<1",
+]
+
+[tool.uv]
+# This is the public install/run repository. `uv run` should install only the
+# runtime dependencies, not the development/test toolchain.
+default-groups = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/audio_report_ai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+qt_api = "pyside6"
+markers = [
+    "slow: tests that require local models or long-running audio processing",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

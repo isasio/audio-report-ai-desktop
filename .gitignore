@@ -1,0 +1,52 @@
+# Python environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Testing and coverage
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.tox/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local runtime data (must live under XDG paths, never in the repo)
+data/
+recordings/
+transcripts/
+reports/
+models/
+*.wav
+*.mp3
+*.m4a
+*.webm
+*.fcs
+*.sqlite3
+*.sqlite3-*
+*.db
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Private directories
+docs/
+test/
+evaluation/
+packaging/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
